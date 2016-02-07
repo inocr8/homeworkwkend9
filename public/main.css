@@ -1,0 +1,35 @@
+body {
+  background-color: white;
+  background-image: url(http://www.worldeconomy.tv/resources/te44.jpg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  margin: 10px 10px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #ff9900;
+}
+
+p {
+  font-size: 1em;
+}
+
+#countries {
+    font-size: 13pt;
+    background-color: #1a8cff;
+}
+
+#map {
+  height: 500px;
+  width: 500px;
+  margin: 10px 0;
+}
+
+#info {
+  font-size: 1.5em;
+}
