@@ -5,7 +5,19 @@ var CountryDetailView = function(element){
 //create the Google Map
 var createGoogleMap = function(latitude, longitude, mapInfo){
   var position = {lat: latitude, lng: longitude};
-  var zoomNumber = 4;
+  var zoomNumber = 0;
+  if(mapInfo.area < 999999){
+    zoomNumber = 7;
+  }
+  else if(mapInfo.area >= 1000000 && mapInfo.area < 4999999){
+    zoomNumber = 5;
+  }
+  else if(mapInfo.area >= 5000000 && mapInfo.area < 9999999){
+    zoomNumber = 4;
+  }
+  else{
+    zoomNumber = 3;
+  }
   var mapTypeId = google.maps.MapTypeId.HYBRID;
   var contentString = "<h1>"+ mapInfo.name +"</h1>" + "<h2>Population of: "+ Number(mapInfo.pop).toLocaleString() +"<br>Capital City: "+ mapInfo.cap +"</h2>";
   var icon = "http://icons.iconarchive.com/icons/icons-land/vista-map-markers/64/Map-Marker-Push-Pin-1-Left-Azure-icon.png";
@@ -20,7 +32,8 @@ CountryDetailView.prototype = {
     var mapInfo = {
       name: country.name,
       pop: country.population,
-      cap: country.capital
+      cap: country.capital,
+      area: country.area
     };
     createGoogleMap(country.latlng[0], country.latlng[1], mapInfo);
     var tags = this.element.querySelectorAll('h1, p, h2')
