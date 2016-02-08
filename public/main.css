@@ -3,7 +3,7 @@ body {
 /*  background-image: url(http://www.worldeconomy.tv/resources/te44.jpg);
   background-position: top right;
   background-repeat: no-repeat;*/
-  margin: 10px 10px;
+  margin: 10px 30px;
 }
 
 h1 {
@@ -28,6 +28,16 @@ p {
   height: 500px;
   width: 500px;
   margin: 10px 0;
+/*  float: left;
+  display: inline-block;*/
+}
+
+#pie-chart {
+  height: 500px;
+  width: 500px;
+  margin: 20px 300px 20px 10px;
+  float: right;
+  display: inline-block;
 }
 
 #info {

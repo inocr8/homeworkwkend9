@@ -29,13 +29,21 @@ var createGoogleMap = function(latitude, longitude, mapInfo){
 CountryDetailView.prototype = {
   display: function(country){
     console.log("element", this.element)
+    var chartCountry = country;
     var mapInfo = {
       name: country.name,
       pop: country.population,
       cap: country.capital,
       area: country.area
     };
+    var chartInfo = {
+      name: country.name,
+      pop: country.population,
+      region: country.region,
+      subregion: country.subregion
+    };
     createGoogleMap(country.latlng[0], country.latlng[1], mapInfo);
+    createPieChart(chartCountry, chartInfo);
     var tags = this.element.querySelectorAll('h1, p, h2')
     tags[0].innerText = country.name;
     tags[1].innerText = "This country has a population size of " + Number(country.population).toLocaleString() + " humans.";
