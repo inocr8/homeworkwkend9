@@ -40,15 +40,18 @@ CountryDetailView.prototype = {
       name: country.name,
       pop: country.population,
       region: country.region,
-      subregion: country.subregion
+      subregion: country.subregion,
+      currency: country.currencies[0]
     };
     createGoogleMap(country.latlng[0], country.latlng[1], mapInfo);
-    createPieChart(chartCountry, chartInfo);
+    createPieChartRegion(chartCountry, chartInfo);
+    createPieChartCurrency(chartCountry, chartInfo);
     var tags = this.element.querySelectorAll('h1, p, h2')
     tags[0].innerText = country.name;
     tags[1].innerText = "This country has a population size of " + Number(country.population).toLocaleString() + " humans.";
     tags[2].innerText = "The capital city of " + country.name + " is " + country.capital + ".";
     tags[3].innerText = country.name + " is situated in the region of " + country.region + ", but more accurately in the sub-region of " + country.subregion + ".";
-    tags[4].innerText = "Did you know? " + country.name + " has a native name and this is " + country.nativeName + "!";
+    tags[4].innerText = country.name + " is part of the " + country.currencies[0] + " family of nations.";
+    tags[5].innerText = "Did you know? " + country.name + " has a native name and this is " + country.nativeName + "!";
   }
 };

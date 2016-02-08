@@ -1,5 +1,5 @@
-var PieChart = function(regionTotalPop, chartCountry, title){
-  var container = document.getElementById("pie-chart");
+var pieChartRegion = function(regionTotalPop, chartCountry, title){
+  var container = document.getElementById("pie-chart-region");
   var chart = new Highcharts.Chart({
     chart: {
       type: 'pie',

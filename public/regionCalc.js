@@ -1,7 +1,7 @@
 var urlForRegions = "https://restcountries.eu/rest/v1/region/";
 var requestForRegions = new XMLHttpRequest();
 
-var createPieChart = function(chartCountry, chartInfo){
+var createPieChartRegion = function(chartCountry, chartInfo){
   var region = chartInfo.region;
   var name = chartInfo.name;
   var countryPop = chartInfo.pop;
@@ -17,7 +17,7 @@ var createPieChart = function(chartCountry, chartInfo){
       };
       regionTotalPop = calcPop;
     };
-    var pie = new PieChart((regionTotalPop - countryPop), chartCountry, title);
+    var pie = new pieChartRegion((regionTotalPop - countryPop), chartCountry, title);
   };
   requestForRegions.send(null);
 };
