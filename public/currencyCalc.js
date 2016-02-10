@@ -6,8 +6,7 @@ var createPieChartCurrency = function(chartCountry, chartInfo){
   var name = chartInfo.name;
   var countryPop = chartInfo.pop;
   var title = "<h1>Population of "+name+" in relation to "+currency+"</h1>"
-  var calcPop = 0;
-  var currencyCountry = [];
+  var calcPop = 0; 
   requestForCurrency.open("GET", (urlForCurrency+currency));
   requestForCurrency.onload = function(){
     if(requestForCurrency.status === 200){
@@ -16,17 +15,10 @@ var createPieChartCurrency = function(chartCountry, chartInfo){
       for (var c = 0; c < listOfCurrencies.length; c++) {
         calcPop += (listOfCurrencies[c].population);
       };
-      currencyCountry = currencyCountry.push(calcPop);
       currencyTotalPop = calcPop;
-      // listOfCurrencies = listOfCurrencies.population;
-      for(cc in currencyCountry){
-        var cc = 0;
-        console.log(cc);
-      }
       console.log(currency);
     };
-    // var pieCurrencyCountry = new pieChartCurrency((currencyTotalPop - countryPop), chartCountry, title);
-    // var pieCurrencyWorld = new pieChartCurrency(cu)
+    var pie = new pieChartCurrency((currencyTotalPop - countryPop), chartCountry, title);
   };
   requestForCurrency.send(null);
 };
