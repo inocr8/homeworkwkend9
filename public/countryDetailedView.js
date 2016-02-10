@@ -43,7 +43,7 @@ CountryDetailView.prototype = {
       subregion: country.subregion,
       currency: country.currencies[0]
     };
-    createGoogleMap(country.latlng[0], country.latlng[1], mapInfo);
+    // createGoogleMap(country.latlng[0], country.latlng[1], mapInfo);
     createPieChartRegion(chartCountry, chartInfo);
     createPieChartCurrency(chartCountry, chartInfo);
     var tags = this.element.querySelectorAll('h1, p, h2')
